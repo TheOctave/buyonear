@@ -1,38 +1,22 @@
 package me.buyonear.buyonear;
 
-import android.content.Intent;
-import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class SplashPage extends AppCompatActivity {
-
-    public static int SPLASH_DURATION = 1000;
+public class Login extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash_page);
-
-        new Handler().postDelayed(new Runnable() {
-
-            @Override
-            public void run() {
-
-                /* Create an Intent that will start the Menu Activity */
-                Intent mainIntent = new Intent(SplashPage.this, Login.class);
-                SplashPage.this.startActivity(mainIntent);
-                SplashPage.this.finish();
-            }
-        }, SPLASH_DURATION);
+        setContentView(R.layout.activity_login);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_splash_page, menu);
+        getMenuInflater().inflate(R.menu.menu_login, menu);
         return true;
     }
 
