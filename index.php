@@ -1,46 +1,33 @@
 <?php
-include 'config.php';
+//ini_set('display_errors', 1);
+//ini_set('display_startup_errors', 1);
+ini_set('default_charset', 'urf-8');
 
-echo "here";
-die;
+$directory= "/";
 
-$url = isset($_GET['url']) ? $_GET['url'] : 'error';
-$url = rtrim($url, '/');
-$urlArray = explode("/", $url);
+$main_path= $_SERVER['DOCUMENT_ROOT'].$directory;
+require_once($main_path.'libs/Slim/Slim.php');
+require_once($main_path.'libs/Stripe/init.php');
+require_once($main_path.'libs/Clarifai/init.php');
+require_once($main_path.'libs/Curl/init.php');
+
+\Slim\Slim::registerAutoloader();
+$app = new \Slim\Slim();
+$app->contentType('text/html; charset=utf-8');
 
 
-if ($urlArray[0] == 'login') {
-    
-    include 'controls/login/index.php';
-} else if ($urlArray[0] == 'products') {
-    
-	if (!isset($urlArray[1]) ) {
-		
-		include 'controls/products/index.php';
-	} else if (isset($urlArray[2])) {
-		
-		if ($urlArray[2] == "rate") {
-			include 'controls/products/rate.php';
-		} else if ($urlArray[2] == "bid"){
-			include 'controls/products/bid.php';
-		} else {
-			basicFailureStatus();
-		}
-	}
-} else if ($urlArray[0] == 'profile') {
-    
-    include 'controls/product.php';
-}else if ($urlArray[0] == 'search') {
- 
-    include 'controls/search.php';
-} else {
-	
-	//Error page
-}
+require_once($main_path.'config.php');
+require_once($main_path.'libs/functions.php');
 
-function basicFailureStatus() {
-	
-	$result = array('status' => 'failure');
-	echo json_encode($result);
-	die;
-}
+
+
+require_once($main_path.'model/stdclass.php');
+require_once($main_path.'model/product.php');
+require_once($main_path.'model/user.php');
+
+
+require_once($main_path.'router/routes.php');
+
+require_once($main_path.'init.php');
+$app->run();
+?>
