@@ -17,7 +17,6 @@ if ($urlArray[0] == 'login') {
 	if (!isset($urlArray[1]) ) {
 		
 		include 'controls/products/index.php';
-		die;
 	} else if (isset($urlArray[2])) {
 		
 		if ($urlArray[2] == "rate") {
@@ -27,7 +26,6 @@ if ($urlArray[0] == 'login') {
 		} else {
 			basicFailureStatus();
 		}
-		die;
 	}
 } else if ($urlArray[0] == 'profile') {
     
