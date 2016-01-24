@@ -1,5 +1,6 @@
-<?
+<?php
 
+echo "Index.php";
 if (isset($_GET['handle']) && isset($_GET['password'])) {
     
     $handle = $_GET['handle'];
