@@ -8,4 +8,5 @@
     <string name="facebook_app_id">1012130505526199</string>
     <string name="title_activity_facebook">FacebookActivity</string>
     <string name="title_activity_login_attempt">LoginAttempt</string>
+    <string name="title_activity_main">MainActivity</string>
 </resources>

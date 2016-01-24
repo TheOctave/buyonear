@@ -5,9 +5,9 @@ $url = isset($_GET['url']) ? $_GET['url'] : 'error';
 $url = rtrim($url, '/');
 $urlArray = explode("/", $url);
 
-if ($urlArray[0] == 'register') {
+if ($urlArray[0] == 'login') {
     
-    include 'controls/register/index.php';
+    include 'controls/login/index.php';
 } else if ($urlArray[0] == 'products') {
     
 	if (!isset($urlArray[1]) ) {

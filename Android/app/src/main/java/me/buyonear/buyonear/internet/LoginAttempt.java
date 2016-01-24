@@ -21,7 +21,7 @@ import me.buyonear.buyonear.Login;
  * Created by Ikechukwu on 6/23/2015.
  */
 public class LoginAttempt {
-    private String loginLink = "http://192.168.56.1//jumbotron/register";
+    private String loginLink = "http://130.211.137.191/buyonear/login";
 //    private String loginLink = "http://172.20.10.4/backtrolley/login";
 //    private String loginLink = "http://192.168.1.101/backtrolley/login";
     private Login loginActivity;
@@ -36,8 +36,6 @@ public class LoginAttempt {
         try {
             String handle = params[0];
             String password = params[1];
-
-            Log.e("DEBUG", "TRYING TO CONNECT TO DATABASE");
 
             String data = URLEncoder.encode("handle", "UTF-8") + "=" + URLEncoder.encode(handle, "UTF-8") + "&"
                     + URLEncoder.encode("password", "UTF-8") + "=" + URLEncoder.encode(password, "UTF-8");
@@ -59,6 +57,8 @@ public class LoginAttempt {
 
                 sb.append(line);
             }
+
+            Log.e("RESULT", sb.toString());
 
             return sb.toString();
         } catch (UnsupportedEncodingException e) {
@@ -83,10 +83,8 @@ public class LoginAttempt {
                 if (jsonObject.getString("status").equals("success")) {
 
                     String user = jsonObject.getString("user");
-                    String name = jsonObject.getString("name");
-                    String time = jsonObject.getString("time");
 
-                    loginActivity.setInfo(name, user, time);
+                    //loginActivity.setInfo(name, user, time);
                     Log.e("Login onPostExecute", "Login Test passed");
                 } else {
 
