@@ -28,15 +28,14 @@ function getData($query, $type){
 	try {
 		$datos= [];
 
-		$con = getConnection();
-		$data = $con->prepare($query);
+		$con= getConnection();
+		$data= $con->prepare($query);
 		$data->execute();
 
 		switch ($type) {
 			case 'all':
-				$datos= $data->fetchAll();
+				$datos= $data->fetchAll(PDO::FETCH_CLASS);
 				break;
-			
 			case 'one':
 				$datos= $data->fetchObject();
 				break;

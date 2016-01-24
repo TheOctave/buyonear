@@ -1,6 +1,7 @@
 <?php
-//ini_set('display_errors', 1);
-//ini_set('display_startup_errors', 1);
+require_once('vendor/autoload.php');
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
 ini_set('default_charset', 'urf-8');
 
 $directory= "/";
@@ -30,4 +31,6 @@ require_once($main_path.'router/routes.php');
 
 require_once($main_path.'init.php');
 $app->run();
+
+
 ?>

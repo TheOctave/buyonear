@@ -11,8 +11,8 @@ class Product {
 		return $product;
 	}
 
-	public static function createProduct($product_name, $seller, $photo){
-		$query = "INSERT INTO product (product_name, seller, photo) VALUES (\"$product_name\", \"$seller\", \"$photo\")";
+	public static function createProduct($product_name, $seller, $photo, $price, $docid){
+		$query = "INSERT INTO product (product_name, seller, photo, price, docid) VALUES (\"$product_name\", \"$seller\", \"$photo\", \"$price\", \"$docid\" )";
 		$product = postData($query, "insert");
 		return $product;
 	}

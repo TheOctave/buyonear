@@ -1,6 +1,5 @@
 {
     "require": {
-        "stripe/stripe-php": "3.*",
-        "php-curl-class/php-curl-class": "*.*"
+        "parse/php-sdk": "1.1.*"
     }
 }
