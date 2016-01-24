@@ -9,6 +9,7 @@
     <ImageView android:id="@+id/splashscreen" android:layout_width="wrap_content"
         android:layout_height="fill_parent"
         android:src="@drawable/shoppinggreatagain"
-        android:layout_gravity="center_horizontal"/>
+        android:layout_gravity="center_horizontal"
+        android:layout_centerInParent="true"/>
 
 </LinearLayout>

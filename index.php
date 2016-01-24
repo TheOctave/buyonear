@@ -1,4 +1,6 @@
 <?php
+include 'config.php';
+
 $url = isset($_GET['url']) ? $_GET['url'] : 'error';
 $url = rtrim($url, '/');
 $urlArray = explode("/", $url);
@@ -11,7 +13,7 @@ if ($urlArray[0] == 'register') {
 	if (!isset($urlArray[1]) ) {
 		
 		include 'controls/products/index.php';
-	} else if($urlArray[1]) == "id") {
+	} else if($urlArray[1] == "id") {
 		
 		if (isset($urlArray[2])) {
 		
