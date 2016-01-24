@@ -6,14 +6,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.Window;
+import android.view.WindowManager;
 
 public class SplashPage extends AppCompatActivity {
 
-    public static int SPLASH_DURATION = 1000;
+    public static int SPLASH_DURATION = 5000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_splash_page);
 
         new Handler().postDelayed(new Runnable() {
