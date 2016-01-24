@@ -64,24 +64,31 @@ $app->get("/verify/", function() use($app){
 
 $app->get("/product/:id", function($id) use($app){
 	$oResponse = new stdObject();
-	//$oResponse->data = array("Hello", "World", "!");
+	$product = Product::getProduct($id);
+	
+	$oResponse->product = $product;
+	echoResponse($oResponse);
+});
+
+$app->get("/product", function($id) use($app){	
+	$product = Product::getProducts();	
+	$oResponse = $product;
 	echoResponse($oResponse);
 });
 
 
-$app->post("/product/:id", function($id) use($app){
-	$params = $app->request->getBody();
-	$params = json_decode($params);
+$app->post("/product", function() use($app){
+	$params = $app->request()->post();
 
-	$name = "";
-	if(isset($params->name)){
-		$name= $params->name;
-	}
-	
+	$name = $params['name'];
+	$seller = $params['seller'];
+	$photo = $params['photo'];
+
+	$response = Product::createProduct($name, $seller, $photo);
+		
 	$oResponse = new stdObject();
-	$oResponse->data->name = $name;
+	//$oResponse->data->name = $name;
 	echoResponse($oResponse);
-
 });
 
 $app->post("/product/:id/bid", function($id) use($app){

@@ -1,9 +1,9 @@
 <?php
 class Config {
-	static private $db_username = "";
-	static private $db_password = "";
-	static private $db_name = "";
-	static private $db_server = "localhost";
+	static private $db_username = "root";
+	static private $db_password = "swamphacks";
+	static private $db_name = "buyonear";
+	static private $db_server = "162.243.13.50";
 
 	static private $method_get = "GET";
 	static private $method_post = "POST";

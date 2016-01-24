@@ -28,8 +28,8 @@ function getData($query, $type){
 	try {
 		$datos= [];
 
-		$con= getConnection();
-		$data= $con->prepare($query);
+		$con = getConnection();
+		$data = $con->prepare($query);
 		$data->execute();
 
 		switch ($type) {
