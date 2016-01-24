@@ -5,6 +5,8 @@ $url = isset($_GET['url']) ? $_GET['url'] : 'error';
 $url = rtrim($url, '/');
 $urlArray = explode("/", $url);
 
+echo "here";
+die;
 if ($urlArray[0] == 'login') {
     
     include 'controls/login/index.php';
