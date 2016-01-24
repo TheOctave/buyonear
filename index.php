@@ -13,20 +13,14 @@ if ($urlArray[0] == 'register') {
 	if (!isset($urlArray[1]) ) {
 		
 		include 'controls/products/index.php';
-	} else if($urlArray[1] == "id") {
+	} else if (isset($urlArray[2])) {
 		
-		if (isset($urlArray[2])) {
-		
-			if ($urlArray[2] == "rate") {
-				include 'controls/products/rate.php';
-			} else if ($urlArray[2] == "bid"){
-				include 'controls/products/bid.php';
-			} else {
-				basicFailureStatus();
-			}
+		if ($urlArray[2] == "rate") {
+			include 'controls/products/rate.php';
+		} else if ($urlArray[2] == "bid"){
+			include 'controls/products/bid.php';
 		} else {
-			
-			//display the product
+			basicFailureStatus();
 		}
 	}
 } else if ($urlArray[0] == 'profile') {
